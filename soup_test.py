@@ -2,6 +2,7 @@ from bs4 import BeautifulSoup
 import requests
 import json
 import sys
+import pokepy
 
 
 
@@ -25,11 +26,17 @@ def main():
     #print(((json_dict['injectRpcs'][2])[1])['strategies'])
 
     #print(len(((json_dict['injectRpcs'][2])[1])['strategies'])) give us a list of dict
-
     strats_list = (((json_dict['injectRpcs'])[2])[1])['strategies']
+    #print(strats_list)
+    #print(json.dumps(strats_list[0]))
 
-    print(json.dumps(strats_list[0]))
+    client = pokepy.V2Client()
+    #print(client.get_pokemon(5).name)
 
+    new_dict = dict()
+    new_dict['name'] = "articuno"
+    new_dict['presets'] = []
+    print(new_dict['name'])
 
 
 def old():
